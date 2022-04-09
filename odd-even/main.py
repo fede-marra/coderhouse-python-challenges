@@ -8,4 +8,3 @@ while numero != 0:
     else:
         print(f"El numero {numero} es impar")
     numero = int(input("Ingrese un numero entero por favor o 0 para terminar la ejecucion: "))
-    
