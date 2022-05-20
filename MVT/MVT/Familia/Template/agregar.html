@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paginas de Familiares</title>
+</head>
+    <body bgcolor="33E0FF">
+        <a href="{% url 'Mostrar' %}"><h1 style="text-align:right">Mostrar</h1></a>
+        <form action="/Familia/agregar/" method="post" align="center">
+            <h2>{{mensaje}}</h2>
+            {% csrf_token %}
+            <h1 style="text-align: center;"><big>Ingrese los Datos de su Familiar</big></h1>
+            <h2 style="text-align:center">{{form}}</h2>
+            <input type="submit" value="Agregar">
+         </form>
+         <br>
+ 
+    </body>
+</html>

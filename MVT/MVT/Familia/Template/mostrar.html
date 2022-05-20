@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paginas de Familiares</title>
+</head>
+<body bgcolor="33E0FF">
+    <a href="{% url 'agregar' %}"><h1 style="text-align:right">Agregar</h1></a>
+    <br>
+    <br>
+
+    {% if messages %}
+        <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}><h2>{{ message }}</h2></li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    <h1 style="text-align:center"><big>Listado de Familiares</big></h1>
+    <br>
+    <br>
+    <hr color="black">
+    <br>
+    {% if personas %}
+        {% for n in personas %}
+            <li style="margin-left: 3cm;"><b>Identificador: {{n.id}}</b></li>
+            <li style="margin-left: 3cm;"><b>Nombre: {{n.nombre}}</b></li>
+            <li style="margin-left: 3cm;"><b>Apellido: {{n.apellido}}</b></li>
+            <li style="margin-left: 3cm;"><b>Fecha de Nacimiento: {{n.nacimiento}}</b></li>
+            <li style="margin-left: 3cm;"><b>Documento: {{n.documento}}</b></li>
+            <a href="{% url 'Borrar' identificador=n.id %}"><h3 style="margin-left: 3cm"> Borrar </h3></a>
+            <hr color="black">
+            <br>
+            
+        {% endfor %}
+    {% else %}
+        <p>No tienes familiares cargados</p>
+    {% endif %}
+
+</body>
+</html>
